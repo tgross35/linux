@@ -60,7 +60,9 @@ Otherwise, if a standalone installer is used, the Rust repository may be cloned
 into the installation folder of the toolchain::
 
 	git clone --recurse-submodules \
+		--shallow-submodules
 		--branch $(scripts/min-tool-version.sh rustc) \
+		--depth 1 \
 		https://github.com/rust-lang/rust \
 		$(rustc --print sysroot)/lib/rustlib/src/rust
 
@@ -205,11 +207,14 @@ Building
 Building a kernel with a complete LLVM toolchain is the best supported setup
 at the moment. That is::
 
-	make LLVM=1
+	make LLVM=1 -j$(nproc)
+
+``-j$(nproc)`` tells ``make`` to use as many jobs as there are cores available.
+This can be omitted to do a single-thread build.
 
 For architectures that do not support a full LLVM toolchain, use::
 
-	make CC=clang
+	make CC=clang -j$(nproc)
 
 Using GCC also works for some configurations, but it is very experimental at
 the moment.

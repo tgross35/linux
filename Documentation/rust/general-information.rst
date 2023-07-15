@@ -41,7 +41,7 @@ While ``rustc`` is a very helpful compiler, some extra lints and analyses are
 available via ``clippy``, a Rust linter. To enable it, pass ``CLIPPY=1`` to
 the same invocation used for compilation, e.g.::
 
-	make LLVM=1 CLIPPY=1
+	make LLVM=1 CLIPPY=1 -j$(nproc)
 
 Please note that Clippy may change code generation, thus it should not be
 enabled while building a production kernel.
