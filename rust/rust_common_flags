@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: GPL-2.0
+# Parameters passed to rust tools (`rustc`, `clippy`, `rustdoc`) whenever they
+# are run.
+
+# Standard configuration
+--edition=2021
+-Zbinary_dep_depinfo=y
+
+# Standard rust lints
+-Dnon_ascii_idents
+-Drust_2018_idioms
+-Dunreachable_pub
+-Dunsafe_op_in_unsafe_fn
+
+# Documentation lints
+-Wmissing_docs
+-Drustdoc::missing_crate_level_docs
+
+# Clippy groups
+-Dclippy::complexity
+-Dclippy::correctness
+-Dclippy::perf
+-Dclippy::style
+-Dclippy::suspicious
+
+# Clippy lints from pedantic
+-Dclippy::mut_mut
+-Dclippy::needless_bitwise_bool
+-Dclippy::needless_continue
+
+# Clippy lints that we only warn on
+-Wclippy::dbg_macro
