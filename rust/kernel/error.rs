@@ -134,7 +134,7 @@ impl Error {
     #[allow(dead_code)]
     pub(crate) fn to_ptr<T>(self) -> *mut T {
         // SAFETY: self.0 is a valid error due to its invariant.
-        unsafe { bindings::ERR_PTR(self.0.into()) as *mut _ }
+        unsafe { bindings::ERR_PTR(self.0.into()).cast() }
     }
 
     /// Returns a string representing the error, if one exists.

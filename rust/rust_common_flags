@@ -61,6 +61,9 @@
 -Dclippy::needless_for_each
 -Dclippy::no_effect_underscore_binding
 -Dclippy::option_option
+-Dclippy::ptr_as_ptr
+# FIXME: enable this at version bump, not supported in 1.68
+# -Dclippy::ptr_cast_constness
 -Dclippy::range_minus_one
 -Dclippy::range_plus_one
 -Dclippy::ref_binding_to_reference
@@ -69,6 +72,7 @@
 -Dclippy::same_functions_in_if_condition
 -Dclippy::stable_sort_primitive
 -Dclippy::too_many_lines
+-Dclippy::transmute_ptr_to_ptr
 -Dclippy::trivially_copy_pass_by_ref
 -Dclippy::undocumented_unsafe_blocks
 -Dclippy::unicode_not_nfc

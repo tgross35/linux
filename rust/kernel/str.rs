@@ -100,7 +100,7 @@ impl CStr {
         // to a `NUL`-terminated C string.
         let len = unsafe { bindings::strlen(ptr) } + 1;
         // SAFETY: Lifetime guaranteed by the safety precondition.
-        let bytes = unsafe { core::slice::from_raw_parts(ptr as _, len as _) };
+        let bytes = unsafe { core::slice::from_raw_parts(ptr.cast(), len as _) };
         // SAFETY: As `len` is returned by `strlen`, `bytes` does not contain interior `NUL`.
         // As we have added 1 to `len`, the last byte is known to be `NUL`.
         unsafe { Self::from_bytes_with_nul_unchecked(bytes) }
@@ -146,7 +146,7 @@ impl CStr {
     /// Returns a C pointer to the string.
     #[inline]
     pub const fn as_char_ptr(&self) -> *const core::ffi::c_char {
-        self.0.as_ptr() as _
+        self.0.as_ptr().cast()
     }
 
     /// Convert the string to a byte slice without the trailing 0 byte.
