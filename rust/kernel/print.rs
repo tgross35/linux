@@ -56,6 +56,7 @@ pub mod format_strings {
     /// given `prefix`, which are the kernel's `KERN_*` constants.
     ///
     /// [`_printk`]: ../../../../include/linux/printk.h
+    #[allow(clippy::trivially_copy_pass_by_ref)]
     const fn generate(is_cont: bool, prefix: &[u8; 3]) -> [u8; LENGTH] {
         // Ensure the `KERN_*` macros are what we expect.
         assert!(prefix[0] == b'\x01');

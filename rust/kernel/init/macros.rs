@@ -808,6 +808,7 @@ macro_rules! __pin_data {
                 >,
             }
 
+            #[allow(clippy::expl_impl_clone_on_copy)]
             impl<$($impl_generics)*> ::core::clone::Clone for __ThePinData<$($ty_generics)*>
             where $($whr)*
             {

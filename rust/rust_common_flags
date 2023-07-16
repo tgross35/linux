@@ -34,6 +34,8 @@
 -Dclippy::doc_link_with_quotes
 -Dclippy::doc_markdown
 -Dclippy::empty_enum
+-Dclippy::expl_impl_clone_on_copy
+-Dclippy::explicit_deref_methods
 -Dclippy::explicit_into_iter_loop
 -Dclippy::explicit_iter_loop
 -Dclippy::filter_map_next
@@ -67,6 +69,7 @@
 -Dclippy::same_functions_in_if_condition
 -Dclippy::stable_sort_primitive
 -Dclippy::too_many_lines
+-Dclippy::trivially_copy_pass_by_ref
 -Dclippy::undocumented_unsafe_blocks
 -Dclippy::unicode_not_nfc
 -Dclippy::unnecessary_join
