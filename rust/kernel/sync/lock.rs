@@ -107,7 +107,7 @@ impl<T, B: Backend> Lock<T, B> {
             // SAFETY: `slot` is valid while the closure is called and both `name` and `key` have
             // static lifetimes so they live indefinitely.
             state <- Opaque::ffi_init(|slot| unsafe {
-                B::init(slot, name.as_char_ptr(), key.as_ptr())
+                B::init(slot, name.as_char_ptr(), key.as_ptr());
             }),
         })
     }

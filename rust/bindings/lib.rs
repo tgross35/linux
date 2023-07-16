@@ -16,6 +16,7 @@
 #![allow(
     clippy::all,
     clippy::ptr_as_ptr,
+    clippy::semicolon_if_nothing_returned,
     clippy::transmute_ptr_to_ptr,
     clippy::undocumented_unsafe_blocks,
     missing_docs,

@@ -49,6 +49,7 @@
 -Dclippy::iter_not_returning_iterator
 -Dclippy::large_types_passed_by_value
 -Dclippy::macro_use_imports
+-Dclippy::manual_assert
 -Dclippy::manual_let_else
 -Dclippy::manual_ok_or
 -Dclippy::match_bool
@@ -66,10 +67,12 @@
 # -Dclippy::ptr_cast_constness
 -Dclippy::range_minus_one
 -Dclippy::range_plus_one
+-Dclippy::redundant_else
 -Dclippy::ref_binding_to_reference
 -Dclippy::ref_option_ref
 -Dclippy::return_self_not_must_use
 -Dclippy::same_functions_in_if_condition
+-Dclippy::semicolon_if_nothing_returned
 -Dclippy::stable_sort_primitive
 -Dclippy::too_many_lines
 -Dclippy::transmute_ptr_to_ptr

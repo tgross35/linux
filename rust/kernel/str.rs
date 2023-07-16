@@ -471,7 +471,7 @@ impl fmt::Write for RawFormatter {
                     s.as_bytes().as_ptr(),
                     self.pos as *mut u8,
                     len_to_copy,
-                )
+                );
             };
         }
 
