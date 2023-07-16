@@ -25,6 +25,7 @@ use crate::{
 use alloc::boxed::Box;
 use core::{
     alloc::AllocError,
+    convert::Into,
     fmt,
     marker::{PhantomData, Unsize},
     mem::{ManuallyDrop, MaybeUninit},
@@ -182,7 +183,7 @@ impl<T> Arc<T> {
     where
         Error: From<E>,
     {
-        UniqueArc::pin_init(init).map(|u| u.into())
+        UniqueArc::pin_init(init).map(Into::into)
     }
 
     /// Use the given initializer to in-place initialize a `T`.
@@ -193,7 +194,7 @@ impl<T> Arc<T> {
     where
         Error: From<E>,
     {
-        UniqueArc::init(init).map(|u| u.into())
+        UniqueArc::init(init).map(Into::into)
     }
 }
 

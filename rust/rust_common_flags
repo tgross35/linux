@@ -46,6 +46,7 @@
 -Dclippy::implicit_clone
 -Dclippy::inconsistent_struct_constructor
 -Dclippy::invalid_upcast_comparisons
+-Dclippy::items_after_statements
 -Dclippy::iter_not_returning_iterator
 -Dclippy::large_types_passed_by_value
 -Dclippy::macro_use_imports
@@ -67,6 +68,7 @@
 # -Dclippy::ptr_cast_constness
 -Dclippy::range_minus_one
 -Dclippy::range_plus_one
+-Dclippy::redundant_closure_for_method_calls
 -Dclippy::redundant_else
 -Dclippy::ref_binding_to_reference
 -Dclippy::ref_option_ref

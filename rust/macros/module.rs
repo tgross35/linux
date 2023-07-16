@@ -101,11 +101,11 @@ struct ModuleInfo {
 
 impl ModuleInfo {
     fn parse(it: &mut token_stream::IntoIter) -> Self {
-        let mut info = ModuleInfo::default();
-
         const EXPECTED_KEYS: &[&str] =
             &["type", "name", "author", "description", "license", "alias"];
         const REQUIRED_KEYS: &[&str] = &["type", "name", "license"];
+
+        let mut info = ModuleInfo::default();
         let mut seen_keys = Vec::new();
 
         loop {
