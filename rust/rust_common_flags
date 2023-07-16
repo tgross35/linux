@@ -67,8 +67,12 @@
 -Dclippy::same_functions_in_if_condition
 -Dclippy::stable_sort_primitive
 -Dclippy::too_many_lines
+-Dclippy::undocumented_unsafe_blocks
 -Dclippy::unicode_not_nfc
 -Dclippy::unnecessary_join
+# FIXME: enable this at the next version bump. Disabled because of false
+# positive in macros: https://github.com/rust-lang/rust-clippy/issues/10084
+# -Dclippy::unnecessary_safety_comment
 -Dclippy::unnested_or_patterns
 
 # Clippy lints from restriction

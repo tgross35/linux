@@ -15,6 +15,7 @@
 #![cfg_attr(test, allow(unsafe_op_in_unsafe_fn))]
 #![allow(
     clippy::all,
+    clippy::undocumented_unsafe_blocks,
     missing_docs,
     non_camel_case_types,
     non_upper_case_globals,
