@@ -19,4 +19,4 @@
 --opaque-type spinlock
 
 # `seccomp`'s comment gets understood as a doctest
---no-doc-comments
+# --no-doc-comments
