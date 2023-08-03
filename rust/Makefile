@@ -81,7 +81,7 @@ quiet_cmd_rustdoc = RUSTDOC $(if $(rustdoc_host),H, ) $<
 # command-like flags to solve the issue. Meanwhile, we use the non-custom case
 # and then retouch the generated files.
 rustdoc: rustdoc-core rustdoc-macros rustdoc-compiler_builtins \
-    rustdoc-alloc rustdoc-kernel
+    rustdoc-alloc rustdoc-bindings rustdoc-kernel
 	$(Q)cp $(srctree)/Documentation/images/logo.svg $(objtree)/$(obj)/doc
 	$(Q)cp $(srctree)/Documentation/images/COPYING-logo $(objtree)/$(obj)/doc
 	$(Q)find $(objtree)/$(obj)/doc -name '*.html' -type f -print0 | xargs -0 sed -Ei \
@@ -114,12 +114,20 @@ rustdoc-alloc: private rustc_target_flags = $(alloc-cfgs) \
 rustdoc-alloc: $(src)/alloc/lib.rs rustdoc-core rustdoc-compiler_builtins FORCE
 	$(call if_changed,rustdoc)
 
+rustdoc-bindings: private rustc_target_flags = --extern alloc \
+    --extern build_error --extern macros=$(objtree)/$(obj)/libmacros.so \
+    --extern uapi
+rustdoc-bindings: $(src)/bindings/lib.rs rustdoc-core rustdoc-macros \
+    rustdoc-compiler_builtins rustdoc-alloc $(obj)/libmacros.so \
+    $(obj)/bindings.o FORCE
+	$(call if_changed,rustdoc)
+
 rustdoc-kernel: private rustc_target_flags = --extern alloc \
     --extern build_error --extern macros=$(objtree)/$(obj)/libmacros.so \
     --extern bindings --extern uapi
 rustdoc-kernel: $(src)/kernel/lib.rs rustdoc-core rustdoc-macros \
-    rustdoc-compiler_builtins rustdoc-alloc $(obj)/libmacros.so \
-    $(obj)/bindings.o FORCE
+    rustdoc-compiler_builtins rustdoc-alloc rustdoc-bindings \
+    $(obj)/libmacros.so FORCE
 	$(call if_changed,rustdoc)
 
 quiet_cmd_rustc_test_library = RUSTC TL $<
