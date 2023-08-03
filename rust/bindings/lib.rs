@@ -7,6 +7,9 @@
 //! This crate may not be directly used. If you need a kernel C API that is
 //! not ported or wrapped in the `kernel` crate, then do so first instead of
 //! using this crate.
+//!
+//! Note that this module is heavily configuration-dependent, published versions
+//! of documentation may not accurately reflect local configuration.
 
 #![no_std]
 // See <https://github.com/rust-lang/rust-bindgen/issues/1651>.
